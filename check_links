@@ -1,0 +1,71 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+
+# URLs to skip over
+blacklisted = []
+
+import csv
+from urlextract import URLExtract
+import requests
+
+csv_file = ""
+markdown_file = "README.md"
+
+links = []
+csvlinks = []
+exit_status = 0
+
+print(f"Collecting URLs from {csv_file}")
+
+with open(csv_file) as f:
+    lines = f.readlines()
+
+    for l in  csv.reader(lines, quotechar='"', delimiter=',', quoting=csv.QUOTE_ALL, skipinitialspace=True):
+        csvlinks.append(l[4])
+
+    csvlinks.pop(0)
+
+links += csvlinks
+
+print(f"Collecting URLs from {markdown_file}")
+
+with open(markdown_file) as f:
+    text = f.read()
+
+extractor = URLExtract()
+markdown = extractor.find_urls(text)
+
+links += markdown
+
+print("Cleaning up list of URLs")
+
+# Remove mailto links
+links = [url for url in links if "mailto://" not in url]
+
+# Remove blacklisted links
+for link in links:
+    if link in blacklisted:
+        links.remove(link)
+        print(f"Removed {link}")
+
+print("Checking all URLs")
+
+for url in links:
+    try:
+        request = requests.get(url)
+        if request.status_code == 200:
+            print(f"✓ 200 {url}")
+        elif request.status_code >= 400:
+            print(f"✕ {request.status_code} {url}")
+            exit_status = 1
+        else:
+            print(f"⚪ {request.status_code} {url}")
+
+    except:
+        print(f"✕ ERR {url}")
+
+        # Continue through all URLs but fail test at the end
+        exit_status = 1
+        continue
+
+exit(exit_status)
