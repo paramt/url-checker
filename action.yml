@@ -1,2 +1,3 @@
 name: Check URLs
 author: Param Thakkar
+description: Automatically check for broken links in markdown files
