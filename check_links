@@ -8,7 +8,7 @@ import os
 from urlextract import URLExtract
 import requests
 
-files = os.getenv('MARKDOWN_FILES').split("'")
+files = os.getenv('MARKDOWN_FILES').split(",")
 links = []
 exit_status = 0
 
