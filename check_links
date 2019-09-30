@@ -4,38 +4,24 @@
 # URLs to skip over
 blacklisted = []
 
-import csv
+import os 
 from urlextract import URLExtract
 import requests
 
-csv_file = ""
-markdown_file = "README.md"
-
+files = os.getenv('MARKDOWN_FILES').split("'")
 links = []
-csvlinks = []
 exit_status = 0
 
-print(f"Collecting URLs from {csv_file}")
+for file in files:
+    print(f"Collecting URLs from {file}")
 
-with open(csv_file) as f:
-    lines = f.readlines()
+    with open(file) as f:
+        text = f.read()
 
-    for l in  csv.reader(lines, quotechar='"', delimiter=',', quoting=csv.QUOTE_ALL, skipinitialspace=True):
-        csvlinks.append(l[4])
+    extractor = URLExtract()
+    file_links = extractor.find_urls(text)
 
-    csvlinks.pop(0)
-
-links += csvlinks
-
-print(f"Collecting URLs from {markdown_file}")
-
-with open(markdown_file) as f:
-    text = f.read()
-
-extractor = URLExtract()
-markdown = extractor.find_urls(text)
-
-links += markdown
+    links += file_links
 
 print("Cleaning up list of URLs")
 
