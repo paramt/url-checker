@@ -6,6 +6,9 @@ inputs:
     description: 'A list of all the markdown files in the repo, separated by commas. Defaults to README.md'
     required: false
     default: 'README.md'
+runs:
+  using: python
+  main: 'check_links'
 branding:
   icon: 'link'
   color: 'green'
