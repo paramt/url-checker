@@ -6,6 +6,9 @@ inputs:
     description: 'A list of all the markdown files in the repo, separated by commas. Defaults to README.md'
     required: false
     default: 'README.md'
+  blacklisted_links:
+    description: 'A comma-separated list of URLs to skip over.'
+    required: false
 runs:
   using: python
   main: 'check_links'
