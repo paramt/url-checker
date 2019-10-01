@@ -10,8 +10,8 @@ inputs:
     description: 'A comma-separated list of URLs to skip over.'
     required: false
 runs:
-  using: python
-  main: 'check_links'
+  using: 'node12'
+  main: 'main.js'
 branding:
   icon: 'link'
   color: 'green'
