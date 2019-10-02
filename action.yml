@@ -10,8 +10,8 @@ inputs:
     description: 'A comma-separated list of URLs to skip over.'
     required: false
 runs:
-  using: 'python'
-  main: 'entrypoint.py'
+  using: 'docker'
+  image: 'Dockerfile'
 branding:
   icon: 'link'
   color: 'green'
