@@ -1,0 +1,12 @@
+name: Test LinkChecker
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Run LinkChecker
+        uses: paramt/github-actions-playground@master
