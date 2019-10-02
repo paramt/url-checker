@@ -1,8 +1,8 @@
 FROM python:latest
 
-ADD entrypoint.py /entrypoint.py
+ADD check_links.py /check_links.py
 ADD requirements.txt /requirements.txt
 
 RUN pip install -r requirements.txt
-RUN chmod +x entrypoint.py
-ENTRYPOINT ["/entrypoint.py"]
+RUN chmod +x check_links.py
+ENTRYPOINT ["/check_links.py"]
