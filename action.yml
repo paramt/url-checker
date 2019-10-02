@@ -9,6 +9,7 @@ inputs:
   blacklisted:
     description: 'A comma-separated list of URLs to skip over.'
     required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
