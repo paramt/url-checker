@@ -9,6 +9,6 @@ jobs:
     
     steps:
       - name: Run LinkChecker
-        uses: paramt/github-actions-playground@master
+        uses: paramt/LinkChecker@master
         with:
           files: test.md
