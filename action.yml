@@ -1,6 +1,6 @@
-name: Check URLs
-author: Param Thakkar
-description: Automatically check for broken links in markdown files
+name: 'Check URLs'
+author: 'Param Thakkar'
+description: 'Automatically check for broken links in markdown files'
 inputs: 
   markdown_files:
     description: 'A list of all the markdown files in the repo, separated by commas. Defaults to README.md'
