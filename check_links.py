@@ -6,7 +6,7 @@ from urlextract import URLExtract
 import requests
 
 # URLs to skip over
-blacklisted = os.getenv("INPUT_BLACKLISTED", "").split(",")
+blacklisted = os.getenv("INPUT_BLACKLIST", "").split(",")
 
 files = os.getenv('INPUT_FILES').split(",")
 repo = os.getenv("GITHUB_REPOSITORY")

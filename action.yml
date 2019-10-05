@@ -1,12 +1,12 @@
 name: 'Check URLs'
 author: 'Param Thakkar'
 description: 'Automatically check for broken links in markdown files'
-inputs: 
+inputs:
   files:
     description: 'A list of all the markdown files in the repo, separated by commas. Defaults to README.md'
     required: false
     default: 'README.md'
-  blacklisted:
+  blacklist:
     description: 'A comma-separated list of URLs to skip over.'
     required: false
     default: ''
