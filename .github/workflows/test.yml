@@ -12,3 +12,4 @@ jobs:
         uses: paramt/LinkChecker@master
         with:
           files: test.md
+          blacklist:  https://github.com/paramt/this-doesnt-exist
