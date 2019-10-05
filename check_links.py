@@ -6,9 +6,7 @@ from urlextract import URLExtract
 import requests
 
 # URLs to skip over
-blacklisted = ""
-if "INPUT_BLACKLISTED" in os.environ:
-    blacklisted = os.getenv('INPUT_BLACKLISTED').split(",")
+blacklisted = os.getenv("INPUT_BLACKLISTED", "").split(",")
 
 files = os.getenv('INPUT_FILES').split(",")
 links = []
