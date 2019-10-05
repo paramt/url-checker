@@ -16,7 +16,7 @@ exit_status = 0
 for file in files:
     print(f"Collecting URLs from {file}")
     filepath = "https://raw.githubusercontent.com/" + repo + "/master/" + file
-    text = requests.get(filepath).content
+    text = requests.get(filepath).text
 
     extractor = URLExtract()
     file_links = extractor.find_urls(text)
