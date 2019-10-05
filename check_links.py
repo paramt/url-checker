@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-import os 
+import os
 from urlextract import URLExtract
 import requests
 
@@ -9,14 +9,14 @@ import requests
 blacklisted = os.getenv("INPUT_BLACKLISTED", "").split(",")
 
 files = os.getenv('INPUT_FILES').split(",")
+repo = os.getenv("GITHUB_REPOSITORY")
 links = []
 exit_status = 0
 
 for file in files:
     print(f"Collecting URLs from {file}")
-
-    with open(file) as f:
-        text = f.read()
+    filepath = "https://raw.githubusercontent.com/" + repo + "/master/" + file
+    text = requests.get(filepath).content
 
     extractor = URLExtract()
     file_links = extractor.find_urls(text)
