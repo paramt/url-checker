@@ -7,10 +7,10 @@ import requests
 
 # URLs to skip over
 blacklisted = ""
-if "blacklisted" in os.environ:
-    blacklisted = os.getenv('BLACKLISTED').split(",")
+if "INPUT_BLACKLISTED" in os.environ:
+    blacklisted = os.getenv('INPUT_BLACKLISTED').split(",")
 
-files = os.getenv('FILES').split(",")
+files = os.getenv('INPUT_FILES').split(",")
 links = []
 exit_status = 0
 
