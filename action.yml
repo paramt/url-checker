@@ -1,4 +1,4 @@
-name: 'Link Checker'
+name: 'URL Checker'
 author: 'Param Thakkar'
 description: 'Automatically check for broken links in markdown files'
 inputs:
