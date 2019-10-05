@@ -6,10 +6,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Run LinkChecker
         uses: paramt/LinkChecker@master
         with:
           files: test.md
-          blacklist:  https://github.com/paramt/this-doesnt-exist
+          blacklist:  https://www.github.com/paramt/this-doesnt-exist
