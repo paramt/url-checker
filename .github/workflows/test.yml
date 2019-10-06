@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Run LinkChecker
-        uses: paramt/LinkChecker@master
+        uses: paramt/url-checker@master
         with:
           files: test.md
           blacklist:  https://www.github.com/paramt/this-doesnt-exist
