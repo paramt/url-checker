@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check URLs
-        uses: paramt/LinkChecker@master
+        uses: paramt/url-checker@master
         with:
           files: [README.md,SUPPORT.md]
           blacklist: []
