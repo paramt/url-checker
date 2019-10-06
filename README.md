@@ -23,6 +23,6 @@ jobs:
  - `blacklist`: A comma-separated list of URLs to ignore
 
 ### Sample Output
-![Example](https://i.imgur.com/35zldHS.png)
+[![Example](https://i.imgur.com/35zldHS.png)](https://github.com/paramt/url-checker/commit/093ef6cb5f7e9eff8300887f07eb0c3a55f4aa82/checks)
 
 > Note: url-checker only works on public repositories
