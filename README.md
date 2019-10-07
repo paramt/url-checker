@@ -18,7 +18,7 @@ jobs:
 ```
 
 ### Arguments
- - `files`: A comma-separated list of files to check
+ - `files`: A comma-separated list of files to check. Defaults to README.md
  - `blacklist`: A comma-separated list of URLs to ignore
 
 ### Sample Output
