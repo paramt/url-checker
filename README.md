@@ -14,8 +14,7 @@ jobs:
       - name: Check URLs
         uses: paramt/url-checker@master
         with:
-          files: [README.md,SUPPORT.md]
-          blacklist: []
+          files: "README.md,SUPPORT.md"
 ```
 
 ### Arguments
