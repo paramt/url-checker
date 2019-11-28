@@ -21,37 +21,33 @@ for file in files:
     extractor = URLExtract()
     file_links = extractor.find_urls(text)
 
-    links += file_links
+    # Remove mailto links
+    links = [url for url in file_links if "mailto://" not in url]
 
-print("Cleaning up list of URLs")
+    # Remove blacklisted links
+    for link in links:
+        if link in blacklisted:
+            links.remove(link)
+            print(f"Removed {link}")
 
-# Remove mailto links
-links = [url for url in links if "mailto://" not in url]
+    print(f"Checking URLs from {file}")
 
-# Remove blacklisted links
-for link in links:
-    if link in blacklisted:
-        links.remove(link)
-        print(f"Removed {link}")
+    for url in links:
+        try:
+            request = requests.get(url)
+            if request.status_code == 200:
+                print(f"✓ 200 {url}")
+            elif request.status_code >= 400:
+                print(f"✕ {request.status_code} {url}")
+                exit_status = 1
+            else:
+                print(f"⚪ {request.status_code} {url}")
 
-print("Checking all URLs")
+        except:
+            print(f"✕ ERR {url}")
 
-for url in links:
-    try:
-        request = requests.get(url)
-        if request.status_code == 200:
-            print(f"✓ 200 {url}")
-        elif request.status_code >= 400:
-            print(f"✕ {request.status_code} {url}")
+            # Continue through all URLs but fail test at the end
             exit_status = 1
-        else:
-            print(f"⚪ {request.status_code} {url}")
-
-    except:
-        print(f"✕ ERR {url}")
-
-        # Continue through all URLs but fail test at the end
-        exit_status = 1
-        continue
+            continue
 
 exit(exit_status)
