@@ -50,4 +50,7 @@ for file in files:
             exit_status = 1
             continue
 
+    # Newline to separate URLs from different files
+    print()
+
 exit(exit_status)
