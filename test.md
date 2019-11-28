@@ -1,5 +1,5 @@
 ### Test links:
-This repo uses LinkChecker to test for broken links. This file has been added using the `files` input, so all the links in this file will be checked.
+This repo uses url-checker to test for broken links. This file has been added using the `files` input, so all the links in this file will be checked.
 
 These links are all working:
  - [My Website](https://www.param.me)
