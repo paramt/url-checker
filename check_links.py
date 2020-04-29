@@ -13,6 +13,9 @@ repo = os.getenv("GITHUB_REPOSITORY")
 links = []
 exit_status = 0
 
+def remove_duplicates(urls):
+    return list(set(urls))
+
 for file in files:
     print(f"Collecting URLs from {file}")
     filepath = "https://raw.githubusercontent.com/" + repo + "/master/" + file
@@ -31,6 +34,11 @@ for file in files:
             print(f"Removed {link}")
 
     print(f"Checking URLs from {file}")
+
+    # Remove Duplicate links
+    links = remove_duplicates(links)
+
+    print(f"Removing duplicate URLs from {file}")
 
     for url in links:
         try:
