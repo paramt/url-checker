@@ -26,21 +26,23 @@ for file in files:
 
     # Remove mailto links
     links = [url for url in file_links if "mailto://" not in url]
+    linksToRequest = []
 
     # Remove blacklisted links
     for link in links:
         if link in blacklisted:
-            links.remove(link)
             print(f"Removed {link}")
+        else:
+            linksToRequest.append(link)
 
     print(f"Checking URLs from {file}")
 
     # Remove Duplicate links
-    links = remove_duplicates(links)
+    linksToRequest = remove_duplicates(linksToRequest)
 
     print(f"Removing duplicate URLs from {file}")
 
-    for url in links:
+    for url in linksToRequest:
         try:
             request = requests.get(url)
             if request.status_code == 200:
