@@ -12,7 +12,8 @@ jobs:
 
     steps:
       - name: Run LinkChecker
-        uses: paramt/url-checker@master
+        id: self-check
+        uses: ./
         with:
           files: test.md
           blacklist:  https://www.github.com/paramt/this-doesnt-exist
