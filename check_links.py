@@ -22,8 +22,8 @@ def get_test_from_file(file):
     try:
         with open('./' + file) as f:
             text = f.readlines()
-        print("Found file in the locally checked out repo")
-        return text
+            print("Found file in the locally checked out repo")
+            return text
     except FileNotFoundError as e:
         print("Could not find file checked out locally, falling back to using public link")
 
