@@ -16,10 +16,28 @@ exit_status = 0
 def remove_duplicates(urls):
     return list(set(urls))
 
+
+def get_test_from_file(file):
+    # Assume the local file has been checked out in the action
+    try:
+        with open('./' + file) as f:
+            text = f.readlines()
+    except FileNotFoundError as e:
+        print("Could not find file checked out locally, falling back to using public link")
+
+    # Fall-back to pulling from the public URL for backawards comaptibility
+    try:
+        filepath = "https://raw.githubusercontent.com/" + repo + "/master/" + file
+        r = requests.get(filepath)
+        r.raise_for_status()
+        return r.text
+    except requests.exceptions.HTTPError as err:
+        print("Could not find file using fallback public link")    
+
+
 for file in files:
-    print(f"Collecting URLs from {file}")
-    filepath = "https://raw.githubusercontent.com/" + repo + "/master/" + file
-    text = requests.get(filepath).text
+    
+    text = get_test_from_file(file)
 
     extractor = URLExtract()
     file_links = extractor.find_urls(text)
