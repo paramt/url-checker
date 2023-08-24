@@ -11,6 +11,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Check URLs
         uses: paramt/url-checker@master
         with:
@@ -23,5 +25,3 @@ jobs:
 
 ### Sample Output
 [![Example](https://i.imgur.com/35zldHS.png)](https://github.com/paramt/url-checker/commit/093ef6cb5f7e9eff8300887f07eb0c3a55f4aa82/checks)
-
-> Note: url-checker only works on public repositories
