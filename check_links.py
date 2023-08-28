@@ -17,7 +17,7 @@ def remove_duplicates(urls):
     return list(set(urls))
 
 
-def get_test_from_file(file):
+def get_text_from_file(file):
     # Assume the local file has been checked out in the action
     try:
         with open('./' + file) as f:
@@ -39,7 +39,7 @@ def get_test_from_file(file):
 
 for file in files:
     
-    text = get_test_from_file(file)
+    text = get_text_from_file(file)
 
     extractor = URLExtract()
     file_links = extractor.find_urls(text)
