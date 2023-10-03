@@ -1,4 +1,4 @@
-FROM python:3.11-alpine
+FROM python:latest
 
 ADD check_links.py /check_links.py
 ADD requirements.txt /requirements.txt

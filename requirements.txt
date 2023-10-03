@@ -1,2 +1,2 @@
-requests==2.22.0
-urlextract==0.12.1
+requests==2.31.0
+urlextract==1.8.0
