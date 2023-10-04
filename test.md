@@ -4,8 +4,7 @@ This repo uses url-checker to test for broken links. This file has been added us
 #### These links are all working:
  - [My Website](https://www.param.me)
  - [My GitHub profile](https://github.com/paramt)
- - [My Instagram](https://www.instagram.com/paramt)
- 
+
  
 #### This link is broken:
 - [Non-existing repository](https://www.github.com/paramt/this-doesnt-exist)
